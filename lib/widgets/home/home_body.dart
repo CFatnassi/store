@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/constants.dart';
 import 'package:store/models/product.dart';
+import 'package:store/widgets/details/details_body.dart';
 import 'package:store/widgets/home/product_card.dart';
 
 class HomeBody extends StatelessWidget {
@@ -30,6 +31,14 @@ class HomeBody extends StatelessWidget {
                   itemBuilder: (context, index) => ProductCard(
                     itemIndex: index, 
                     product: products[index],
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailsScreen(),
+                        ),
+                      );
+                    },
                   ),
 
                 ),
