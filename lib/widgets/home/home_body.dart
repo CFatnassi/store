@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/constants.dart';
 import 'package:store/models/product.dart';
+import 'package:store/screens/details_screen.dart';
 import 'package:store/widgets/details/details_body.dart';
 import 'package:store/widgets/home/product_card.dart';
 
@@ -32,6 +33,7 @@ class HomeBody extends StatelessWidget {
                     itemIndex: index, 
                     product: products[index],
                     press: () {
+                      
                       Navigator.push(
                         context,
                         MaterialPageRoute(

@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
 
   final int itemIndex;
   final Product product;
-  final Function press;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ProductCard extends StatelessWidget {
       ),
       height: 190.0,
       child: InkWell(
-        onTap: press(),
+        onTap: press,
         child: Stack(
           alignment: Alignment.center,
             children: [
