@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:store/constants.dart';
+import 'package:store/models/product.dart';
 import 'package:store/widgets/details/color_dot.dart';
 import 'package:store/widgets/details/product_image.dart';
 
 class detailsBody extends StatelessWidget {
+  final Product product;
+
+  const detailsBody({super.key, required this.product});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: double.infinity,
@@ -25,7 +30,7 @@ class detailsBody extends StatelessWidget {
               Center(
                 child: ProductImage(
                   size: size,
-                  image: 'images/airpod.png',
+                  image: product.image,
                 ),
               ),
               Padding(
@@ -53,12 +58,12 @@ class detailsBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
                 child: Text(
-                 'Airpods',
+                 product.title,
                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
                Text(
-                'Price: 999\$',
+                'Price: \$${product.price}',
                 style: TextStyle(
                   fontSize: 28.0,
                   fontWeight: FontWeight.w600,
@@ -69,6 +74,20 @@ class detailsBody extends StatelessWidget {
             ],
             
            
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
+          padding: EdgeInsets.symmetric(
+            horizontal: kDefaultPadding * 1.5,
+            vertical: kDefaultPadding / 2,
+          ),
+          child: Text(
+            product.description,
+            style: TextStyle(color: Colors.white, fontSize: 19.0),
+
+
+          
           ),
         ),
 
